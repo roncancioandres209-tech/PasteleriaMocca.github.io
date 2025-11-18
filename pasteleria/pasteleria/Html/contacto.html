@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pastelería Dulce Mocca</title>
+        <link rel="stylesheet" href="../Css/style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <!-- fuente general -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        <!-- fuente lobster two pal titulo dulce mocca -->
+        <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <!-- fuente Signika pa los textosParrafos-->
+        <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap" rel="stylesheet">
+        <!-- fuente agbalumo pa los titulos y subtitulos-->
+        <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Signika:wght@300..700&display=swap" rel="stylesheet">
+        <!-- enlaces a los iconos de felcha del carrusel -->
+        <script src="https://kit.fontawesome.com/887a835504.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/737c899a18.js" crossorigin="anonymous"></script>
+        
+    </head>
+
+    <body>
+
+         <header>
+            <div class="logo">
+                <img src="../Images/logo.png" alt="Logo Dulce Mocca">
+            </div>
+       
+            <!-- menu ubicadp en el header -->
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="productos.php">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <h1>Contacto Dulce Mocca</h1>
+
+
+
+            <section class="formulario-informacion">
+                <div class="caja">
+                    <h2>Pedidos</h2>
+                    <p>
+                        Si deseas realizar un pedido, completa el siguiente formulario. Nos pondremos en contacto contigo lo antes posible.
+                    </p>
+
+                    <form id="pedido-form" action="#" method="post">
+                        <label for="nombre">Nombre completo:</label><br>
+                        <input type="text" id="nombre" name="from_name" placeholder="Escribe tu nombre completo" required><br><br>
+
+                        <label for="email">Correo electrónico:</label><br>
+                        <input type="email" id="email" name="reply_to" placeholder="Ejemplo: nombre@correo.com" required><br><br>
+
+                        <label for="direccion">Dirección:</label><br>
+                        <input type="text" id="direccion" name="address" placeholder="Ejemplo: Calle 45 #12-30, Barrio El Prado" required><br><br>
+
+                        <label for="producto">Producto que desea pedir:</label><br>
+                        <input type="text" id="producto" name="producto" placeholder="Ejemplo: Postre fresas con crema, torta de chocolate..." required><br><br>
+
+                        <label for="mensaje">Detalles adicionales:</label><br>
+                        <textarea id="mensaje" name="message" rows="4" placeholder="Escribe aquí los detalles o peticiones especiales..."></textarea><br><br>
+
+
+                        <button type="submit">Enviar Solicitud</button>
+                        <p id="mensaje-confirmacion" style="display:none; color:#5a2d82; font-weight:bold; margin-top:10px;">
+                            Gracias por tu pedido. En breve nos pondremos en contacto contigo para confirmar los detalles y el valor total.
+                        </p>
+                    </form>
+                </div>
+
+                <div class="caja">
+                    <h2>Información de contacto</h2>
+                    <p>
+                        A continuación encontrarás nuestra información de contacto, por si deseas comunicarte directamente con nosotros:
+                    </p>
+
+                    <div class="info-contacto">
+                        <p><strong>Número de celular:</strong> +57  3229349911</p>
+                        <p><strong>Email:</strong> pasteleriadulcemocca@gmail.com</p>
+                        <p><strong>Dirección:</strong> Calle 71 p sur # 27 m-04</p>
+                        <p>Diagonal al CAI del barrio Paraíso, Ciudad Bolívar, Bogotá</p>
+                        <p><strong>Horario de atenciòn:</strong> Domingo a domingo: 9:00 a.m. - 9:00 p.m.</p>
+                    </div>
+
+                    <div class="redes-sociales">
+                        <h3>Síguenos en nuestra red social</h3>
+                        <a href="https://www.instagram.com/pasteleriadulcemocca?igsh=MTVzODk2Z2w5Z2RlZw==" target="_blank">Instagram</a>
+                    </div>
+
+
+
+                </div>
+            </section>
+
+
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>Email: pasteleriadulcemocca@gmail.com</p>
+                <p>Tel: 3229349911</p>
+                </div>
+
+                <div class="footer-section">
+                <h3>Dirección</h3>
+                <p>Calle 71 p sur # 27 m-04(Barrio Paraìso)</p>
+                <p>Bogotá, Colombia</p>
+                </div>
+
+                <div class="footer-section">
+                <h3>Página Web</h3>
+                <p><a href=>www.dulcemocca.com</a></p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="../Js/script.js"></script>
+
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+<script type="text/javascript">
+(function() {
+    emailjs.init({
+        publicKey: "VulmZjU61l16vgTuD"
+    });
+})();
+
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("pedido-form");
+    const mensajeConfirmacion = document.getElementById("mensaje-confirmacion");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        emailjs.sendForm("service_cacpfmn", "template_8gn938i", this)
+            .then(function() {
+                console.log("Pedido enviado correctamente");
+                mensajeConfirmacion.style.display = "block";
+                form.reset();
+            }, function(error) {
+                console.log("Error al enviar:", error);
+                alert("Ocurrió un error al enviar tu pedido. Inténtalo de nuevo.");
+            });
+    });
+});
+</script>
+
+
+
+
+    </body>
+    </html>

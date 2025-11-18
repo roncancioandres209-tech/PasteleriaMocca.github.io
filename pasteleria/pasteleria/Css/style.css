@@ -1,0 +1,904 @@
+/*---cuerpo---*/
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(../Images/fondo.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;    
+}
+
+/**/
+/*-----ENCABEZADO----- */
+header {
+    background-color: #ed4e84;
+    color: white;   
+    display: flex;/*organiza y alinea elementos*/
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 50px;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 100px;
+    margin-right: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    font-family: "Agbalumo", system-ui;/*fuente*/
+    color: #adebb3;
+    text-decoration: none;
+    font-weight: 900;/*grosor tezto*/
+    font-size: 35px;/*tamaño fuente*/
+    padding-right: 150px;
+}
+
+/*efecto cambio de color al pasar mouse*/
+nav ul li a:hover {
+    color: #000000;
+}
+
+
+
+
+/*-------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------*/
+/*-----INICIO-----*/
+/*parte de titulo e imagen principal*/
+
+h1 {
+  font-family: "Lobster Two", sans-serif;/*fuente*/
+  font-weight: 700;/*grosor texto*/
+  font-size: 90px;/*tamaño de fuente*/
+  color: #000000;
+  text-align:center;
+  margin-bottom: 20px;/*margen pa separar elementis*/
+}
+
+.contenido_arriba{
+    display: flex;/*organiza y alinea elementos*/
+    align-items: center;/*centra elementos horizontalmente dentro del contenedopr*/
+    justify-content: space-between;/*distribuye elementos horizontalmente con espacio entre ellps*/
+    padding: 60px 80px;/*aplica relleno*/
+}
+
+.imagenCircular img{
+    width: 500px;/*pal tamaño del circulo*/
+    height: 500px;
+    border-radius: 50%;/*pone la imagen redonda*/
+    object-fit: cover;/*ajusta la img*/
+    border: 5px solid#ff69b4;/*color del borde*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);/*sombra*/
+
+}
+
+/*contenedor del texto*/
+.texto{
+    display: flex;/*organiza y alinea elementos*/
+    flex-direction: column;/*alinea de arriba abajo, en columna*/
+    align-items: center;/*centra elementos horizontalmente dentro del contenedopr*/
+    justify-content: center;/*centra elementos verticalmente*/
+}
+
+
+.slogan {
+  font-family: "Agbalumo", system-ui;/*fuente*/
+  font-weight: 500;/*grosor de text0*/
+  font-size: 30px;/*tamaño de fuente*/
+  color: #ed4e84;
+  background-color: #adebb3;
+  padding: 10px 25px;/*relleno entre el borde y contenido*/
+  border-left: 8px solid #ed4e84;
+  border-radius: 25px;/*redondea esquinas*/
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);/*sombra*/
+  display: inline-block;/*bloque alineado*/
+  text-align: center;/*centra*/
+  margin-top: 10px;/*agrega margen pa separar elementos*/
+}
+
+
+
+
+/*----- PArTE DEL CARRUSEL -----*/
+/* Sección de productos destacados */
+.productos_destacados {
+    text-align: center;
+    padding: 60px 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-top: 50px;
+}
+
+.tituloProductos {
+    font-family: "Lobster Two", sans-serif;
+    font-size: 60px;
+    color: #ed4e84;
+    margin-bottom: 40px;
+}
+
+
+/*-------------------------------------------------------*/
+/* Carrusel */
+/*----- PARTE DEL CARRUSEL -----*/
+/*----- ESTILOS DEL CARRUSEL ----- */
+.carrousel {
+    position: relative;
+    width: 55%; /* ancho general del carrusel */
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    background-color: white;
+    display: flex;
+    flex-direction: column; /* mantiene los puntitos debajo del carrusel */
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/*contenedor general de los items */
+.conteCarrousel {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    transition: transform 0.6s ease-in-out;
+    position: relative;
+}
+
+/*cada item (imagen) del carrusel */
+.itemCarrousel {
+    flex: 0 0 100%;
+    position: absolute; /* todos se apilan uno sobre otro */
+    top: 0;
+    left: 0;
+    opacity: 0; /* ocultos por defecto */
+    transition: opacity 0.6s ease-in-out;
+    text-align: center;
+}
+
+/*mostrar solo el primer elemento al cargar la pagina */
+.conteCarrousel .itemCarrousel:first-child {
+    position: relative;
+    opacity: 1;
+}
+
+/*cuando el item esta en :target, se muestra */
+.itemCarrousel:target {
+    position: relative;
+    opacity: 1;
+    z-index: 1;
+}
+
+/* ----- IMAGENES DEL CARRUSEL ----- */
+.itemCarrousel img {
+    width: 75%;          /* más cuadrado */
+    height: 380px;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+/* ----- FLECHAS DE NAVEGACIÓN ----- */
+.itemCarrouselArrows {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    pointer-events: none; /* evita errores de clic entre carruseles */
+}
+
+.itemCarrouselArrows a {
+    pointer-events: all; /* vuelve clicables las flechas */
+    color: white;
+    font-size: 35px;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px 15px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.itemCarrouselArrows a:hover {
+    background-color: #ed4e84;
+}
+
+/* ----- AJUSTE RESPONSIVE ----- */
+@media (max-width: 768px) {
+    .carrousel {
+        width: 90%;
+    }
+
+    .itemCarrousel img {
+        width: 85%;
+        height: 260px;
+    }
+
+    .itemCarrouselArrows a {
+        font-size: 28px;
+        padding: 8px 12px;
+    }
+
+    .conteCarrouselController a {
+        font-size: 28px;
+    }
+}
+
+
+
+/*----------------------------------------------------------------*/
+/* Botón */
+.botonProductos {
+    font-family: "Agbalumo", system-ui;/*fuente*/
+    margin-top: 40px;
+}
+
+.boton-ver-mas {
+    background-color: #adebb3;
+    color: black;
+    text-decoration: none;
+    padding: 15px 35px;
+    border-radius: 35px;
+    font-size: 22px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-block;
+    text-align: center;
+}
+
+.boton-ver-mas:hover {
+    background-color: #ff69b4;
+    transform: scale(1.05);
+}
+
+
+/* BOTÓN REGRESAR ------------------------------------------------------ */
+.botonregresar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+/* Estilo del botón */
+.boton-regresar {
+  font-family: "Agbalumo", system-ui;
+  background-color: #ff69b4;  /* fucsia */
+  color: black;
+  text-decoration: none;
+  padding: 15px 35px;
+  border-radius: 35px;
+  font-size: 22px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
+  text-align: center;
+  display: inline-block;
+}
+
+/* Efecto hover */
+.boton-regresar:hover {
+  background-color: #adebb3;
+  transform: scale(1.05);
+}
+
+
+
+
+
+
+/*-------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------*/
+/*------SECCION DE PRODUCTOS------*/
+/* Sección de productos */
+.producto1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 40px;
+    background-image: url(../Images/fondo_productos.jpg);
+    background-size: cover; /* evita que se repita y ajusta la imagen al contenedor */
+    background-repeat: no-repeat; /* no se repite */
+    background-position: center; /* centrada */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin: 60px auto;
+    max-width: 1100px;
+    color: #000;
+}
+
+.texto-producto1 {
+    background-color: rgba(255, 255, 255, 0.5); /* fondo semitransparente */
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 800px;
+}
+
+.texto-producto1 h1 {
+    font-family: "Lobster Two", cursive;
+    color: #ed4e84;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+.texto-producto1 p {
+    font-family: "Signika", sans-serif;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+
+
+
+
+/*--------------------------------------------------*/
+/*productos categoria*/
+.productos {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #ffffff;
+}
+
+.productos h2 {
+    font-family: "Agbalumo", system-ui;/*fuente*/
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+/* cntenedor que alinea los productos */
+.producto-lista {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* espacio entre productos */
+}
+
+/*tarjeta de producto */
+.producto {
+    background-color: #f7d3f6;
+    border-radius: 12px;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    text-decoration: none; /* quita el subrayado */
+    color: inherit; /* mantiene el color de texto definido en p o h3 */
+}
+
+.producto:hover {
+    transform: scale(1.05); /* efecto al pasar el mouse */
+}
+
+.producto img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.producto h3 {
+    font-size: 1.1em;
+    margin: 10px 0 5px;
+    color: #ed4e84;
+    text-decoration: none;
+}
+
+.producto p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    text-decoration: none;
+}
+
+
+
+
+
+/*productos categoria torrtas---------------------------*/
+.categoria-tortas {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.categoria-tortas h2 {
+  font-family: "Agbalumo", system-ui;
+  font-size: 2rem;
+  color: #ed4e84;
+  margin-bottom: 10px;
+}
+
+.categoria-tortas .intro {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.productos-categoria-tortas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.item {
+  background-color: #adebb3;
+  border-radius: 12px;
+  width: 200px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s ease;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+
+.item img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.item h3 {
+  font-size: 1.2rem;
+  color: #ed4e84;
+}
+
+.item h2 {
+  font-size: 1.2rem;
+  color: #000000;
+}
+
+.item p {
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.precio {
+  font-weight: bold;
+  color: #000;
+}
+
+
+
+
+
+/*-----------------------------------------------------*/
+/*testimonios*/
+.intro-testimonios {
+    color: #444;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
+
+.testimonios {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.testimonios h2 {
+    font-family: "Agbalumo", system-ui;/*fuente*/
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #000000;
+}
+
+.testimonios-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.testimonio {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.testimonio:hover {
+    transform: translateY(-5px);
+}
+
+.testimonio p {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.testimonio h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #ed4e84;
+}
+
+.testimonio span {
+    color: #FFD700; 
+    font-size: 1.2rem;
+}
+
+
+/*boton pa dejar testimonio-----------------------*/
+.btn-testimonio {
+  background-color: #ed4e84;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-testimonio:hover {
+  background-color: #f57ca3;
+  transform: scale(1.05);
+}
+
+/*formulario testimonios----------------------------------*/
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.form-container {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.form-container input,
+.form-container textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-family: "Poppins", sans-serif;
+}
+
+.btn-enviar {
+  background: #ed4e84;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.btn-cerrar {
+  background: #ccc;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------*/
+/*------SECCION DE NOSOTROS------*/
+
+.nosotros {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 40px;
+    background-image: url(../Images/fondo_nosotros.jpg);
+    background-size: cover; /* evita que se repita y ajusta la imagen al contenedor */
+    background-repeat: no-repeat; /* no se repite */
+    background-position: center; /* centrada */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin: 60px auto;
+    max-width: 1100px;
+    color: #000;
+}
+
+.texto-nosotros {
+    background-color: rgba(500, 500, 500, 0.3); /* fondo semitransparente para que el texto se lea bien */
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 800px;
+}
+
+.texto-nosotros h1 {
+    font-family: "Lobster Two", cursive;
+    color: #ed4e84;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+.texto-nosotros p {
+    font-family: "Signika", sans-serif;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.imagen-nosotros { 
+    flex: 1; text-align: center;
+ } 
+ 
+ .imagen-nosotros img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+}
+
+/*-----------------------------------------------------*/
+.mision-vision {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 30px;
+    margin: 60px auto;
+    max-width: 1200px;
+    padding: 0 40px;
+}
+
+.mision-vision .caja {
+    flex: 1;
+    background-color: #fff;
+    padding: 30px 25px;
+    border-left: 10px solid #ed4e84;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mision-vision .caja:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.mision-vision .caja h2 {
+    color: #ed4e84;
+    font-size: 1.6em;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+.mision-vision .caja p {
+    color: #333;
+    line-height: 1.6;
+    font-size: 1.05em;
+}
+
+/*secciON Trabaja con nosotros */
+.trabaja-con-nosotros {
+    max-width: 900px;
+    margin: 60px auto;
+    background-color: #fff;
+    padding: 35px 40px;
+    border-left: 10px solid #ed4e84;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trabaja-con-nosotros:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.trabaja-con-nosotros h2 {
+    color: #ed4e84;
+    font-size: 1.7em;
+    margin-bottom: 12px;
+    font-weight: bold;
+    font-family: "Agbalumo", system-ui;
+}
+
+.trabaja-con-nosotros p {
+    color: #333;
+    font-size: 1.05em;
+    line-height: 1.6;
+    font-family: "Poppins", sans-serif;
+}
+
+
+
+/*-------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------*/
+/*------SECCION DE CONTACTO------*/
+
+.formulario-informacion {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 40px;
+    margin: 40px auto;       /* agrega espacio arriba y abajo */
+    max-width: 1300px;       /* evita que se estire demasiado */
+    padding: 0 30px;         /* espacio lateral dentro del contenedor */
+    flex-wrap: wrap; /* Para que sea responsive */
+
+}
+
+.formulario-informacion .caja {
+    flex: 1;
+    background-color: #cafbdd;
+    padding: 25px;
+    border-left: 10px solid #D29BFD;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    border-radius: 10px;
+    min-width: 300px;
+}
+
+.formulario-informacion .caja h2 {
+    color: #000;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.formulario-informacion .caja p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+textarea {
+    resize: none; /* evita cambio del tamaño */
+    width: 100%; /* mantiene el ancho igual al de los inputs */
+    height: 120px; /* ajusta la altura*/
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    font-family: "Signika", sans-serif;
+}
+
+form button {
+    background-color: #D29BFD;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #c37dfc;
+}
+
+/*redes sociales-----------------------*/
+.redes-sociales {
+    margin-top: 80px;
+}
+
+.redes-sociales h3 {
+    color: #000;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.redes-sociales a {
+    color: #ed4e84;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 8px;
+    transition: color 0.3s ease;
+    font-size: 30px;
+}
+
+.redes-sociales a:hover {
+    color: #c03769;
+}
+
+
+
+
+
+
+/*-------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------*/    
+/* Footer */
+.footer {
+  background-color: #f7d3f6;
+  color: #000000;
+  padding: 5px 0;
+  font-family: "Signika", sans-serif;/*fuente*/
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin: 10px 20px;
+  font-size: 20px;
+}
+
+.footer-section h3 {
+  color: #ed4e84;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  margin: 5px 0;
+  color: black;
+  font-size: 15px;
+}
+
+.footer-section a {
+  color: black;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  color: #adebb3;
+  text-decoration: underline;
+}
+
+/*version responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    margin-bottom: 20px;
+  }
+}
